@@ -70,7 +70,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="en" suppressHydrationWarning className={`overflow-x-hidden ${plusJakartaSans.variable} ${lora.variable}`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-        <style dangerouslySetInnerHTML={{ __html: `
+        <style id="custom-theme-vars" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: `
           :root, body {
             --color-brand: ${primary} !important;
             --color-accent: ${secondary} !important;
