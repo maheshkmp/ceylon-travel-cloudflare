@@ -7,22 +7,9 @@ import * as schema from "./schema";
 // }
 
 const getDatabaseUrl = (): string => {
-  let url = process.env["DATABASE_URL"];
-
+  const url = process.env["DATABASE_URL"];
   if (!url || url.includes("placeholder")) {
-    try {
-      const { getRequestContext } = require("@cloudflare/next-on-pages");
-      const ctx = getRequestContext();
-      if (ctx?.env?.DATABASE_URL) {
-        url = ctx.env.DATABASE_URL;
-      }
-    } catch {
-      // Ignored if not running inside Cloudflare Workers
-    }
-  }
-
-  if (!url) {
-    return "postgresql://placeholder:placeholder@localhost:5432/placeholder";
+    return "postgresql://neondb_owner:npg_BUmYrk7X3IFb@ep-icy-star-a1r1mn2w-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require";
   }
   return url;
 };
