@@ -17,15 +17,11 @@ const getDatabaseUrl = (): string => {
 // Singleton connection pool
 
 export function getDb() {
-  const sql = neon(getDatabaseUrl(), {
-    fetchOptions: {
-      cache: "no-store",
-    },
-  });
+  const connectionString = getDatabaseUrl();
+  const sql = neon(connectionString);
 
   return drizzle(sql, {
     schema,
-    logger: process.env["NODE_ENV"] === "development",
   });
 }
 

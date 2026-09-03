@@ -333,7 +333,9 @@ async function seed() {
   const db = getDb();
   const now = new Date();
 
+  let index = 0;
   for (const it of itinerariesData) {
+    index++;
     await db.insert(itineraries).values({
       title: it.title,
       slug: it.slug,
@@ -349,6 +351,8 @@ async function seed() {
       inclusions: it.inclusions,
       exclusions: it.exclusions,
       needToKnow: it.needToKnow,
+      order: index,
+      status: "published",
       createdAt: now,
       updatedAt: now,
     }).onConflictDoUpdate({
@@ -367,6 +371,8 @@ async function seed() {
         inclusions: it.inclusions,
         exclusions: it.exclusions,
         needToKnow: it.needToKnow,
+        order: index,
+        status: "published",
         updatedAt: now,
       }
     });
