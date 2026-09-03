@@ -42,7 +42,7 @@ async function ItinerariesSection() {
     const data = await getCachedItineraries();
     return <Itineraries initialData={data?.data || []} />;
   } catch (e: any) {
-    return <div className="text-red-500 text-center py-20">Error in ItinerariesSection: {e?.message || String(e)}</div>;
+    return <div className="text-red-500 text-center py-20">Error in ItinerariesSection: {e?.message || String(e)} (Stack: {e?.stack})</div>;
   }
 }
 
@@ -59,7 +59,7 @@ async function JournalSection() {
     const data = await getCachedPosts();
     return <Journal initialData={data?.data || []} />;
   } catch (e: any) {
-    return <Journal initialData={[]} />;
+    return <div className="text-red-500 text-center py-20">Error in JournalSection: {e?.message || String(e)}</div>;
   }
 }
 
