@@ -19,25 +19,17 @@ const getDatabaseUrl = (): string => {
 
 // Singleton connection pool
 
-let db: ReturnType<typeof drizzle> | null = null;
-
 export function getDb() {
-  if (db) return db;
-
-
   const sql = neon(getDatabaseUrl(), {
     fetchOptions: {
       cache: "no-store",
     },
   });
 
-
-  db = drizzle(sql, {
+  return drizzle(sql, {
     schema,
     logger: process.env["NODE_ENV"] === "development",
   });
-
-  return db;
 }
 
 export type Database = ReturnType<typeof getDb>;
