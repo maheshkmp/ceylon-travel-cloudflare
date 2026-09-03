@@ -14,7 +14,7 @@ import { getDestinations } from "@/actions/destinations";
 import { getPosts } from "@/actions/posts";
 import { getTravelCategories, getTestimonials, getGalleryImages } from "@/actions/home";
 import { getPublicSettings } from "@/actions/settings";
-import { TRAVEL_CATEGORIES } from "@/data/home";
+import { TRAVEL_CATEGORIES, TESTIMONIALS } from "@/data/home";
 
 // ─── Dynamic Imports for below-the-fold components ────────────────────────
 const Itineraries = nextDynamic(() => import("@/components/home/Itineraries").then(mod => mod.Itineraries), { ssr: true });
@@ -90,9 +90,10 @@ async function CategoriesSection() {
 async function TestimonialsSection() {
   try {
     const data = await getCachedTestimonials();
-    return <Testimonials initialData={data || []} />;
+    const finalData = data && data.length > 0 ? data : TESTIMONIALS;
+    return <Testimonials initialData={finalData} />;
   } catch (e: any) {
-    return <Testimonials initialData={[]} />;
+    return <Testimonials initialData={TESTIMONIALS} />;
   }
 }
 
