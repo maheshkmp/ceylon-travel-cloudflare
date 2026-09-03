@@ -4,5 +4,8 @@ compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".vercel/output/static"
 
 [vars]
-NEXT_PUBLIC_APP_URL = "https://ceylon-travels.pages.dev"
-NEXT_PUBLIC_API_URL = "https://ceylon-travels.pages.dev"
+NEXT_PUBLIC_APP_URL = "https://ceylon-travel-cloudflare.pages.dev"
+NEXT_PUBLIC_API_URL = "https://ceylon-travel-cloudflare.pages.dev"
+DATABASE_URL = "postgresql://neondb_owner:npg_BUmYrk7X3IFb@ep-icy-star-a1r1mn2w-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require"
+BETTER_AUTH_SECRET = "wDyQP57jpFfLYGKDGQQrcHZe6ehXBXe3F8PlT5FyhgR7CrfCZDReXjpqgu6ph9tJ"
+BETTER_AUTH_URL = "https://ceylon-travel-cloudflare.pages.dev"

@@ -7,7 +7,20 @@ import * as schema from "./schema";
 // }
 
 const getDatabaseUrl = (): string => {
-  const url = process.env["DATABASE_URL"];
+  let url = process.env["DATABASE_URL"];
+
+  if (!url || url.includes("placeholder")) {
+    try {
+      const { getRequestContext } = require("@cloudflare/next-on-pages");
+      const ctx = getRequestContext();
+      if (ctx?.env?.DATABASE_URL) {
+        url = ctx.env.DATABASE_URL;
+      }
+    } catch {
+      // Ignored if not running inside Cloudflare Workers
+    }
+  }
+
   if (!url) {
     return "postgresql://placeholder:placeholder@localhost:5432/placeholder";
   }
