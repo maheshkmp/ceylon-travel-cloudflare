@@ -1,0 +1,23 @@
+# Absolute dependencies to block from the AI context window
+node_modules/
+.next/
+build/
+dist/
+.dart_tool/
+.pub-cache/
+
+# Heavy mobile/native directories if applicable
+ios/Pods/
+android/.gradle/
+
+# Version control and environment variables
+.git/
+.env
+*.env.*
+
+# Media, logs, and massive datasets
+*.mp4
+*.zip
+*.tar.gz
+*.log
+logs/

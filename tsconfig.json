@@ -1,0 +1,76 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "strict": true,
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2022"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@repo/db/client": [
+        "./src/db/client.ts"
+      ],
+      "@repo/db/schema": [
+        "./src/db/schema/index.ts"
+      ],
+      "@repo/db": [
+        "./src/db/index.ts"
+      ],
+      "@repo/db/*": [
+        "./src/db/*"
+        
+      ],
+      "@repo/validators": [
+        "./src/lib/validators/index.ts"
+      ],
+      "@repo/validators/*": [
+        "./src/lib/validators/*"
+      ],
+      "@repo/types": [
+        "./src/types/index.ts"
+      ],
+      "@repo/types/*": [
+        "./src/types/*"
+      ],
+      "@repo/utils": [
+        "./src/lib/shared-utils.ts"
+      ]
+    },
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "exactOptionalPropertyTypes": false,
+    "allowJs": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/tests",
+    "src/db/seed.ts",
+    "src/db/seed-*.ts",
+    "scripts/generate.ts"
+  ]
+}

@@ -1,0 +1,60 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Build outputs
+dist
+.next
+.vercel
+out
+build
+
+# Environment variables
+.env
+.env*.local
+.env.production
+.env.staging
+
+# Media & Large Files
+ceylontravelsVideo.mp4
+*.mp4
+*.mov
+*.webm
+
+# Temporary HTML Dumps & Test Outputs
+output*.html
+output-*.html
+check-db-images.ts
+fix-itineraries.ts
+test-actions.ts
+test-db-insert.ts
+update-category-images.ts
+
+# Turbo
+.turbo
+
+# DB
+packages/db/migrations
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.swp
+
+# Testing
+coverage
+.nyc_output
+
+# Misc
+*.tsbuildinfo
+
