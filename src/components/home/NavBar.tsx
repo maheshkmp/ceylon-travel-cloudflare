@@ -46,8 +46,6 @@ export function NavBar({ scrolled }: { scrolled: boolean }) {
   }, [mobileMenuOpen]);
 
   const siteName = settings?.general?.siteName ?? "Ceylon Travels";
-  const whatsapp = settings?.contact?.whatsapp || "+94770000000";
-  const waLink = `https://wa.me/${whatsapp.replace(/\+/g, "").replace(/\s/g, "")}`;
 
   const words = siteName.split(" ");
   const firstWord = words[0] || "Ceylon";
@@ -127,40 +125,37 @@ export function NavBar({ scrolled }: { scrolled: boolean }) {
           {/* Right Action Items */}
           <div className="flex items-center shrink-0 gap-1.5 sm:gap-2">
             {/* Quick Mobile WhatsApp Icon Button */}
-            <a
-              href={waLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="md:hidden flex items-center justify-center w-8 h-8 rounded-lg text-white bg-emerald-600/90 hover:bg-emerald-500 active:scale-95 transition-all shadow-sm"
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new CustomEvent("open-inquiry"))}
+              className="md:hidden flex items-center justify-center w-8 h-8 rounded-lg text-white bg-emerald-600/90 hover:bg-emerald-500 active:scale-95 transition-all shadow-sm cursor-pointer"
               title="WhatsApp Us"
               aria-label="WhatsApp"
             >
               <WhatsAppIcon className="w-4 h-4" />
-            </a>
+            </button>
 
             {/* Desktop CTA buttons */}
-            <a
-              href={waLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-500 transition-all duration-200 hover:scale-[1.03] shadow-md shadow-emerald-900/30"
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new CustomEvent("open-inquiry"))}
+              className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-500 transition-all duration-200 hover:scale-[1.03] shadow-md shadow-emerald-900/30 cursor-pointer"
             >
               <WhatsAppIcon className="w-3.5 h-3.5 shrink-0" />
               WhatsApp
-            </a>
-            <a
-              href="#inquiry"
-              onClick={(e) => {
-                e.preventDefault();
+            </button>
+            <button
+              type="button"
+              onClick={() => {
                 window.dispatchEvent(new CustomEvent("open-inquiry"));
               }}
-              className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 hover:scale-[1.03] shadow-md shadow-blue-900/30 ring-2 ring-blue-400/50 ring-offset-1 ring-offset-slate-950 hover:ring-blue-300/70"
+              className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 hover:scale-[1.03] shadow-md shadow-blue-900/30 ring-2 ring-blue-400/50 ring-offset-1 ring-offset-slate-950 hover:ring-blue-300/70 cursor-pointer"
             >
               Free Quote
               <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
-            </a>
+            </button>
           </div>
 
         </div>
@@ -189,27 +184,27 @@ export function NavBar({ scrolled }: { scrolled: boolean }) {
           </div>
 
           <div className="mt-8 pt-6 border-t border-white/10 flex flex-col gap-3">
-            <a
-              href={waLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full inline-flex items-center justify-center gap-2.5 text-sm font-bold py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white transition-all shadow-lg shadow-emerald-900/30"
-            >
-              <WhatsAppIcon className="w-4 h-4" />
-              WhatsApp Us Direct
-            </a>
-            <a
-              href="#inquiry"
-              onClick={(e) => {
-                e.preventDefault();
+            <button
+              type="button"
+              onClick={() => {
                 setMobileMenuOpen(false);
                 window.dispatchEvent(new CustomEvent("open-inquiry"));
               }}
-              className="w-full inline-flex items-center justify-center text-sm font-bold py-3.5 rounded-xl text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 transition-all duration-300 active:scale-95 shadow-lg shadow-blue-900/40 ring-2 ring-blue-400/30"
+              className="w-full inline-flex items-center justify-center gap-2.5 text-sm font-bold py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white transition-all shadow-lg shadow-emerald-900/30 cursor-pointer"
+            >
+              <WhatsAppIcon className="w-4 h-4" />
+              WhatsApp Us Direct
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                window.dispatchEvent(new CustomEvent("open-inquiry"));
+              }}
+              className="w-full inline-flex items-center justify-center text-sm font-bold py-3.5 rounded-xl text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 transition-all duration-300 active:scale-95 shadow-lg shadow-blue-900/40 ring-2 ring-blue-400/30 cursor-pointer"
             >
               Get a Free Trip Quote
-            </a>
+            </button>
           </div>
         </div>
       )}

@@ -49,16 +49,15 @@ export function Gallery({
             </p>
           </div>
           <div className="flex flex-col items-end gap-2">
-            <a
-              href={instagramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-700 transition-all hover:bg-gray-50"
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new CustomEvent("open-inquiry"))}
+              className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-700 transition-all hover:bg-gray-50 cursor-pointer"
               style={{ border: "1px solid #E4E8F0", color: "#1A1A2E", fontWeight: 700 }}
             >
               <span style={{ color: "#E1306C" }}>{Icons.globe}</span>
               {instagramHandle}
-            </a>
+            </button>
             <p className="text-[10px] font-600 uppercase tracking-widest text-gray-400" style={{ fontWeight: 600 }}>Follow for daily inspiration</p>
           </div>
         </div>
@@ -90,12 +89,11 @@ export function Gallery({
               imgSrc = fallbackGallery[i % fallbackGallery.length]!;
 
               return (
-                <a
+                <button
                   key={i}
-                  href={instagramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative overflow-hidden group rounded-xl"
+                  type="button"
+                  onClick={() => window.dispatchEvent(new CustomEvent("open-inquiry"))}
+                  className="relative overflow-hidden group rounded-xl w-full text-left cursor-pointer"
                   style={{
                     height: "0",
                     paddingBottom: "100%", // Square aspect ratio like Instagram
@@ -126,23 +124,22 @@ export function Gallery({
                       </div>
                     </div>
                   </div>
-                </a>
+                </button>
               );
             });
           })()}
         </div>
 
         <div className="text-center mt-12">
-          <a
-            href={instagramUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-[700] text-white transition-all hover:scale-105 shadow-md hover:shadow-lg"
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new CustomEvent("open-inquiry"))}
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-[700] text-white transition-all hover:scale-105 shadow-md hover:shadow-lg cursor-pointer"
             style={{ background: "#1A1A2E" }}
           >
             <span>{Icons.globe}</span>
             View More on Instagram
-          </a>
+          </button>
         </div>
       </div>
     </section>

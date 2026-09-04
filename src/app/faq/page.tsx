@@ -80,14 +80,13 @@ export default async function FAQPage() {
               Our expert travel consultants are available 24/7 on WhatsApp & Email to assist you.
             </p>
           </div>
-          <a
-            href={`https://wa.me/${(settings?.contact?.whatsapp || "+94775105848").replace(/[^0-9]/g, "")}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs flex items-center gap-2 shadow-lg transition-all shrink-0 uppercase tracking-wider"
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new CustomEvent("open-inquiry"))}
+            className="rounded-full px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs flex items-center gap-2 shadow-lg transition-all shrink-0 uppercase tracking-wider cursor-pointer"
           >
             <PhoneCall className="w-4 h-4" /> Ask on WhatsApp
-          </a>
+          </button>
         </div>
 
       </main>

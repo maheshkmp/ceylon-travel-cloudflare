@@ -1,6 +1,6 @@
 import { getDb } from "./client";
 import { users, organizations, orgMembers, accounts } from "./schema";
-import { hash } from "@node-rs/bcrypt";
+import { hashPassword } from "better-auth/crypto";
 
 async function seed() {
   console.log("🌱 Seeding database…");
@@ -9,7 +9,7 @@ async function seed() {
 
   // Better Auth stores passwords in the `account` table, not on the user.
   // For seeding we create credential accounts directly.
-  const passwordHash = await hash("Admin1234!", 12);
+  const passwordHash = await hashPassword("Admin1234!");
 
   // ── Seed users ────────────────────────────────────────────────────────────
   const seedUsers = [

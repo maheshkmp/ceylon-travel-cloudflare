@@ -44,15 +44,14 @@ export function CustomizeItineraryButton({
           <ArrowRight className="w-4 h-4" />
         </button>
         {showWhatsApp && (
-          <a
-            href={waLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white text-xs uppercase tracking-wider bg-[#25D366] hover:bg-[#20bd5a] shadow-xl shadow-emerald-500/20 transition-all"
+          <button
+            type="button"
+            onClick={handleClick}
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white text-xs uppercase tracking-wider bg-[#25D366] hover:bg-[#20bd5a] shadow-xl shadow-emerald-500/20 transition-all cursor-pointer"
           >
             <MessageCircle className="w-4 h-4 fill-white text-[#25D366]" />
             Chat on WhatsApp
-          </a>
+          </button>
         )}
       </div>
     );
@@ -69,15 +68,14 @@ export function CustomizeItineraryButton({
         {label || "Customize Private Itinerary"}
       </button>
       {showWhatsApp && (
-        <a
-          href={waLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full py-3 rounded-xl bg-[#25D366]/20 hover:bg-[#25D366]/30 border border-[#25D366]/40 text-emerald-300 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all"
+        <button
+          type="button"
+          onClick={handleClick}
+          className="w-full py-3 rounded-xl bg-[#25D366]/20 hover:bg-[#25D366]/30 border border-[#25D366]/40 text-emerald-300 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer"
         >
           <MessageCircle className="w-4 h-4 text-[#25D366]" />
           Chat on WhatsApp
-        </a>
+        </button>
       )}
     </div>
   );

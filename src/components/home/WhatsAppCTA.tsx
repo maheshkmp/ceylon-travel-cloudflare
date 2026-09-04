@@ -28,16 +28,15 @@ export function WhatsAppCTA() {
 
           {/* Right */}
           <div className="flex flex-col items-center gap-3 shrink-0">
-            <a
-              href={waLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-700 text-base transition-all hover:opacity-90 hover:scale-105"
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new CustomEvent("open-inquiry"))}
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-700 text-base transition-all hover:opacity-90 hover:scale-105 cursor-pointer"
               style={{ background: "#25D366", color: "white", fontWeight: 700, boxShadow: "0 8px 24px rgba(37,211,102,0.4)" }}
             >
               <span className="shrink-0">{Icons.message}</span>
               Chat on WhatsApp
-            </a>
+            </button>
             <p className="text-white/60 text-xs">{whatsapp} · Available daily</p>
           </div>
         </div>

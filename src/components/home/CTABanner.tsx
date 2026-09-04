@@ -114,15 +114,14 @@ export function CTABanner() {
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
           </a>
-          <a
-            href={waLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-bold text-white bg-emerald-600 hover:bg-emerald-500 transition-all duration-300 hover:scale-[1.03] shadow-xl shadow-emerald-900/40 hover:shadow-emerald-700/40"
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new CustomEvent("open-inquiry"))}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-bold text-white bg-emerald-600 hover:bg-emerald-500 transition-all duration-300 hover:scale-[1.03] shadow-xl shadow-emerald-900/40 hover:shadow-emerald-700/40 cursor-pointer"
           >
             <WhatsAppIcon className="w-5 h-5 shrink-0" />
             WhatsApp Us
-          </a>
+          </button>
         </motion.div>
       </div>
     </section>

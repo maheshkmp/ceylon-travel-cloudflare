@@ -496,17 +496,13 @@ export default function ItineraryClient({ initialData }: { initialData: Itinerar
               Plan Your Journey 
               <ArrowRight className="w-4 h-4" />
             </a>
-            <a
-              href={buildWhatsAppLink({
-                phoneNumber: "+94775105848",
-                message: getItineraryWhatsAppMessage(itinerary.title, itinerary.duration, itinerary.price),
-              })}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white text-sm transition-all bg-[#25D366] hover:bg-[#20bd5a] hover:shadow-lg hover:shadow-emerald-500/25"
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new CustomEvent("open-inquiry", { detail: { style: itinerary.travelStyle } }))}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white text-sm transition-all bg-[#25D366] hover:bg-[#20bd5a] hover:shadow-lg hover:shadow-emerald-500/25 cursor-pointer"
             >
               Chat on WhatsApp
-            </a>
+            </button>
             <a
               href="/itinerary"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-slate-200 text-sm transition-all bg-white/10 border border-white/20 hover:bg-white/20"

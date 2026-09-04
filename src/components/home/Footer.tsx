@@ -316,25 +316,22 @@ export function Footer() {
             </div>
 
             {/* Social Icons */}
-            {activeSocialLinks.length > 0 && (
-              <div className="flex flex-wrap gap-2 pt-2">
-                {activeSocialLinks.map((social) => {
-                  const Icon = social.icon;
-                  return (
-                    <a
-                      key={social.key}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title={social.name}
-                      className={`w-8 h-8 rounded-lg border flex items-center justify-center transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-md ${social.textColor} ${social.bgColor}`}
-                    >
-                      <Icon className="w-4 h-4" />
-                    </a>
-                  );
-                })}
-              </div>
-            )}
+            <div className="flex flex-wrap gap-2 pt-2">
+              {socialConfig.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <button
+                    key={social.key}
+                    type="button"
+                    onClick={() => window.dispatchEvent(new CustomEvent("open-inquiry"))}
+                    title={social.name}
+                    className={`w-8 h-8 rounded-lg border flex items-center justify-center transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-md cursor-pointer ${social.textColor} ${social.bgColor}`}
+                  >
+                    <Icon className="w-4 h-4" />
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 
