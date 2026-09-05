@@ -9,6 +9,9 @@ import { NAV_LINKS } from "@/data/home";
 import { useSiteSettings } from "@/hooks/use-site-settings";
 import { useAuth } from "@/hooks/use-auth";
 import { cn } from "@/lib/utils";
+import { PortfolioBanner } from "@/components/home/PortfolioBanner";
+
+export { PortfolioBanner };
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -59,15 +62,19 @@ export function NavBar({ scrolled }: { scrolled: boolean }) {
 
   if (!mounted) {
     return (
-      <header className="fixed top-0 left-0 right-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 h-14 sm:h-16" />
+      <>
+        <PortfolioBanner />
+        <header className="fixed top-8 left-0 right-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 h-14 sm:h-16" />
+      </>
     );
   }
 
   return (
     <>
+      <PortfolioBanner />
       <nav
         className={cn(
-          "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-500 h-14 sm:h-16 flex items-center",
+          "fixed top-8 left-0 right-0 w-full z-50 transition-all duration-500 h-14 sm:h-16 flex items-center",
           scrolled
             ? "bg-slate-950/90 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_25px_-5px_rgba(0,0,0,0.5)]"
             : "bg-gradient-to-b from-black/50 via-black/20 to-transparent border-transparent"
@@ -163,7 +170,7 @@ export function NavBar({ scrolled }: { scrolled: boolean }) {
 
       {/* Mobile Menu Fullscreen Overlay Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-slate-950/98 backdrop-blur-2xl flex flex-col pt-20 pb-8 px-6 md:hidden animate-in fade-in slide-in-from-top-2 duration-200 overflow-y-auto">
+        <div className="fixed inset-0 z-40 bg-slate-950/98 backdrop-blur-2xl flex flex-col pt-28 pb-8 px-6 md:hidden animate-in fade-in slide-in-from-top-2 duration-200 overflow-y-auto">
           <div className="flex flex-col gap-1.5">
             {NAV_LINKS.map((link) => (
               <Link
